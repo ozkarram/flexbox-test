@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import MainStyle from './Styles/MainStyle.js';
 import {Like, CircularImage, Options,
-        ButtonOne, ButtonTwo, ButtonThree, Thumb} from './Images/ImageUtil';
+        ButtonOne, ButtonTwo, ButtonThree, ImageItem} from './Images/ImageUtil';
 
 export default class App extends React.Component {
   render() {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
         </View>
         <View style={MainStyle.HorizontalLine} />
         <View style={MainStyle.ProfileOptionsContainer}>
-          <Text style={MainStyle.FollowButtonStyle}>+ FOLLOW</Text>
+          <Text style={[MainStyle.FollowButtonStyle, MainStyle.BoldText]}>+ FOLLOW</Text>
           <View style={MainStyle.ProfileOptionsButtons}>
             <ButtonOne/>
             <ButtonTwo/>
@@ -43,10 +43,19 @@ export default class App extends React.Component {
         </View>
         <View style={MainStyle.HorizontalLine} />
 
-
-        <Thumb style={MainStyle.ImageThumb} />
-        <Thumb style={MainStyle.ImageThumb} />
-        <Thumb style={MainStyle.ImageThumb} />
+        <ScrollView style={MainStyle.ImagesContainer}>
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+          <ImageItem style={MainStyle.ImageThumb} />
+        </ScrollView>
 
       </View>
     );

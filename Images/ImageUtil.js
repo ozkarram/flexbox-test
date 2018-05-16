@@ -3,10 +3,11 @@ import Like from './like';
 import List from './list';
 import More from './more';
 import Radio from './radio';
-import Thumb from './thumb';*/}
+import ImageItem from './thumb';*/}
 import React from "react";
 import {View, Image} from "react-native";
 import { StyleSheet } from 'react-native';
+import FitImage from 'react-native-fit-image';
 
 export class Like extends React.Component {
 
@@ -92,16 +93,18 @@ export class ButtonOne extends React.Component {
     styles = StyleSheet.create({
       container : {
         width: 50,
-        height: 50
+        height: 50,
+        justifyContent: 'center'
       },
-      square : {
-
+      img : {
+        tintColor: '#db4cc9'
       }
     });
 
     return (
       <View style={styles.container}>
         <Image
+          style={styles.img}
           source={require('./list.png')}
         />
       </View>
@@ -115,10 +118,8 @@ export class ButtonTwo extends React.Component {
     styles = StyleSheet.create({
       container : {
         width: 50,
-        height: 50
-      },
-      square : {
-
+        height: 50,
+        justifyContent: 'center'
       }
     });
 
@@ -137,10 +138,10 @@ export class ButtonThree extends React.Component {
 
     let styles = StyleSheet.create({
       container: {
-        width: 50,
-        height: 50
-      },
-      square: {}
+        width: 40,
+        height: 40,
+        justifyContent: 'center'
+      }
     });
 
     return (
@@ -153,22 +154,26 @@ export class ButtonThree extends React.Component {
   }
 }
 
-export class Thumb extends React.Component {
+export class ImageItem extends React.Component {
   render() {
 
     styles = StyleSheet.create({
       container : {
-        width: 50,
-        height: 50
+        margin: 10,
+        height: 200,
+        borderRadius: 10,
+        overflow: 'hidden',
       },
-      square : {
-
+      image : {
+        flex: 1,
+        alignSelf: 'stretch'
       }
     });
 
     return (
       <View style={styles.container}>
-        <Image
+        <FitImage
+          style={styles.image}
           source={require('./thumb.jpg')}
         />
       </View>
