@@ -1,61 +1,25 @@
 import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import MainStyle from './Styles/MainStyle.js';
-import {Like, CircularImage, Options,
-        ButtonOne, ButtonTwo, ButtonThree, ImageItem} from './Images/ImageUtil';
+import ProfileHeader from "./Components/ProfileHeader";
+import ProfileHeaderStats from "./Components/ProfileHeaderStats";
+import ProfileOptions from "./Components/ProfileOptions";
+import ImageFeed from "./Components/ImageFeed";
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={MainStyle.container}>
         {/* This is a comment <Text>Hello world! This is  a test with flexbox!</Text>*/}
-        <View style={MainStyle.ProfileHeader}>
-          <Like style={MainStyle.LikeButton}/>
-          <View style={MainStyle.ProfileHeaderCentralContainer}>
-            <CircularImage/>
-            <Text style={MainStyle.ProfileName}>Oscar Alvarez</Text>
-            <Text style={MainStyle.ProfileTwitterProfile}>@ozkarram</Text>
-          </View>
-          <Options style={MainStyle.OptionsButton}/>
-        </View>
-        <View style={MainStyle.ProfileStats}>
-          <View style={MainStyle.ProfileStatItem}>
-            <Text style={MainStyle.BoldText}>2300</Text>
-            <Text>Photos</Text>
-          </View>
-          <View style={MainStyle.ProfileStatItem}>
-            <Text style={MainStyle.BoldText}>300</Text>
-            <Text>Videos</Text>
-          </View>
-          <View style={MainStyle.ProfileStatItem}>
-            <Text style={MainStyle.BoldText}>20K</Text>
-            <Text>Projects</Text>
-          </View>
-        </View>
+        <ProfileHeader/>
+
+        <ProfileHeaderStats/>
+
         <View style={MainStyle.HorizontalLine} />
-        <View style={MainStyle.ProfileOptionsContainer}>
-          <Text style={[MainStyle.FollowButtonStyle, MainStyle.BoldText]}>+ FOLLOW</Text>
-          <View style={MainStyle.ProfileOptionsButtons}>
-            <ButtonOne/>
-            <ButtonTwo/>
-            <ButtonThree/>
-          </View>
-        </View>
+        <ProfileOptions/>
         <View style={MainStyle.HorizontalLine} />
 
-        <ScrollView style={MainStyle.ImagesContainer}>
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-          <ImageItem style={MainStyle.ImageThumb} />
-        </ScrollView>
+        <ImageFeed/>
 
       </View>
     );
