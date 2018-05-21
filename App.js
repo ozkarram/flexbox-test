@@ -11,9 +11,9 @@ export default class App extends React.Component {
     return (
       <View style={MainStyle.container}>
         {/* This is a comment <Text>Hello world! This is  a test with flexbox!</Text>*/}
-        <ProfileHeader/>
+        <ProfileHeader name={"Oscar Josue Alvarez"} twitterProfile={"ozkar_ram"}/>
 
-        <ProfileHeaderStats/>
+        <ProfileHeaderStats amountPhotos={8000} amountVideos={32} amountProjects={18}/>
 
         <View style={MainStyle.HorizontalLine} />
         <ProfileOptions/>
