@@ -5,7 +5,7 @@ import More from './more';
 import Radio from './radio';
 import ImageItem from './thumb';*/}
 import React from "react";
-import {View, Image} from "react-native";
+import {View, Image, TouchableOpacity} from "react-native";
 import { StyleSheet } from 'react-native';
 import FitImage from 'react-native-fit-image';
 
@@ -155,6 +155,21 @@ export class ButtonThree extends React.Component {
 }
 
 export class ImageItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      singleImage: true
+    };
+    this.imageClicked = this.imageClicked.bind(this);
+  }
+
+  imageClicked() {
+    this.setState({
+      singleImage: !this.state.singleImage
+    })
+  }
+
   render() {
 
     styles = StyleSheet.create({
@@ -171,12 +186,13 @@ export class ImageItem extends React.Component {
     });
 
     return (
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container}
+                        onPress={this.imageClicked}>
         <FitImage
           style={styles.image}
-          source={require('./thumb.jpg')}
+          source={this.state.singleImage ? require('./thumb.jpg') : require('./thumb2.jpg')}
         />
-      </View>
+      </TouchableOpacity>
     );
   }
 }

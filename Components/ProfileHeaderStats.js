@@ -8,9 +8,9 @@ export default class ProfileHeaderStats extends React.Component {
   render () {
     return (
       <View style={MainStyle.ProfileStats}>
-        <ProfileStatItem title={"PhotosX"} amount={this.props.amountPhotos}/>
-        <ProfileStatItem title={"VideosX"} amount={this.props.amountVideos}/>
-        <ProfileStatItem title={"ProjectsX"} amount={this.props.amountProjects}/>
+        <ProfileStatItem title={"Photos"} amount={this.props.amountPhotos}/>
+        <ProfileStatItem title={"Videos"} amount={this.props.amountVideos}/>
+        <ProfileStatItem title={"Projects"} amount={this.props.amountProjects}/>
       </View>
     );
   }

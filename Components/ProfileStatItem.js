@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 const ProfileStatItem = ({title, amount}) => {
   return (
     <View style={MainStyle.ProfileStatItem}>
-      <Text style={MainStyle.BoldText}>${amount}</Text>
-      <Text>${title}</Text>
+      <Text style={MainStyle.BoldText}>{amount}</Text>
+      <Text>{title}</Text>
     </View>
   );
 };
