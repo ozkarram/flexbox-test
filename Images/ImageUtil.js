@@ -3,10 +3,11 @@ import Like from './like';
 import List from './list';
 import More from './more';
 import Radio from './radio';
-import ImageItem from './thumb';*/}
+import ImageItem from './thumb';*/
+}
 import React from "react";
-import {View, Image, TouchableOpacity} from "react-native";
-import { StyleSheet } from 'react-native';
+import {View, Image, TouchableOpacity, TouchableWithoutFeedback} from "react-native";
+import {StyleSheet} from 'react-native';
 import FitImage from 'react-native-fit-image';
 
 export class Like extends React.Component {
@@ -14,13 +15,11 @@ export class Like extends React.Component {
   render() {
 
     styles = StyleSheet.create({
-      container : {
+      container: {
         width: 50,
         height: 50
       },
-      square : {
-
-      }
+      square: {}
     });
 
     return (
@@ -34,17 +33,28 @@ export class Like extends React.Component {
 }
 
 export class CircularImage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.imagePressed = this.imagePressed.bind(this);
+  }
+
+  imagePressed() {
+    console.log("Touched at Circular Image");
+    this.props.onPhotoClick();
+  }
+
   render() {
 
     styles = StyleSheet.create({
-      container : {
+      container: {
         width: 60,
         height: 60,
         borderRadius: 30,
         overflow: 'hidden',
         justifyContent: 'center'
       },
-      img : {
+      img: {
         backgroundColor: '#ff361e',
         justifyContent: 'center',
         width: 60,
@@ -55,10 +65,13 @@ export class CircularImage extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.img}
-          source={require('./photo.png')}
-        />
+        <TouchableWithoutFeedback
+          onPress={this.imagePressed}>
+          <Image
+            style={styles.img}
+            source={require('./photo.png')}
+          />
+        </TouchableWithoutFeedback>
       </View>
     );
   }
@@ -68,13 +81,11 @@ export class Options extends React.Component {
   render() {
 
     styles = StyleSheet.create({
-      container : {
+      container: {
         width: 50,
         height: 50
       },
-      square : {
-
-      }
+      square: {}
     });
 
     return (
@@ -91,12 +102,12 @@ export class ButtonOne extends React.Component {
   render() {
 
     styles = StyleSheet.create({
-      container : {
+      container: {
         width: 50,
         height: 50,
         justifyContent: 'center'
       },
-      img : {
+      img: {
         tintColor: '#db4cc9'
       }
     });
@@ -116,7 +127,7 @@ export class ButtonTwo extends React.Component {
   render() {
 
     styles = StyleSheet.create({
-      container : {
+      container: {
         width: 50,
         height: 50,
         justifyContent: 'center'
@@ -173,13 +184,13 @@ export class ImageItem extends React.Component {
   render() {
 
     styles = StyleSheet.create({
-      container : {
+      container: {
         margin: 10,
         height: 200,
         borderRadius: 10,
         overflow: 'hidden',
       },
-      image : {
+      image: {
         flex: 1,
         alignSelf: 'stretch'
       }
